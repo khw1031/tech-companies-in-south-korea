@@ -1,6 +1,9 @@
 name: Build and Deploy to Netlify
+
 on:
-  push: main
+  push:
+    branches: main
+
 jobs:
   build:
     runs-on: ubuntu-latest
