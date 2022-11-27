@@ -1,0 +1,25 @@
+name: Build and Deploy to Netlify
+on:
+  push: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # ( Build to ./dist or other directory... )
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2.4
+        with:
+          publish-dir: './dist'
+          production-branch: main
+          github-token: ${{ secrets.DEPLOY_TOKEN }}
+          deploy-message: "Deploy from github-actions::${{ github.event.pull_request.title }})"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1

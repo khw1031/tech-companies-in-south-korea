@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9d4da2c7-e678-4132-8438-f2dd64c80d5e/deploy-status)](https://app.netlify.com/sites/inspiring-taiyaki-98b892/deploys)
